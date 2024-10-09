@@ -11,4 +11,3 @@ alembic
 SpeechRecognition
 PyAudio
 pydub
-io
