@@ -1,0 +1,14 @@
+python-dotenv
+fastapi
+aiogram
+requests
+pyjwt
+supabase
+cryptography
+sqlalchemy
+asyncpg
+alembic
+SpeechRecognition
+PyAudio
+pydub
+io
