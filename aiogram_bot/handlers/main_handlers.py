@@ -141,8 +141,7 @@ async def handle_lesson_callback(callback_query: CallbackQuery, state: FSMContex
     await callback_query.answer()
 
 
-# ПОВТОРИТЬ СЛОВА ############################ (!!!!!!!!!!!!!!!! ОШИБКА)
-
+############################## ПОВТОРИТЬ СЛОВА ############################
 @router.callback_query(F.data.startswith('repeat-word_'))
 async def handle_word_callback(callback_query: CallbackQuery, state: FSMContext):
     lesson_id = int(callback_query.data.split('_')[1])
