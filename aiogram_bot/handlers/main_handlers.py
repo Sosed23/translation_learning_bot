@@ -45,11 +45,6 @@ async def show_lessons(message: Message):
     # Получаем список уроков для пользователя
     lessons = await rq.get_lessons_by_user(user_id=user.id)
 
-    # Проверяем, есть ли уроки
-    if not lessons:
-        await message.answer('У вас пока нет уроков.')
-        return
-
     # Создаем список кнопок с "Добавить урок" первой
     buttons = [
         [InlineKeyboardButton(
@@ -173,7 +168,7 @@ async def next_word(callback_query: CallbackQuery, state: FSMContext):
     await pagination.handle_next(callback_query, state)
 
 
-##################### УДАЛИТЬ УРОК ############################
+# УДАЛИТЬ УРОК ############################
 
 @router.callback_query(F.data.startswith('delete-lesson_'))
 async def delete_lesson_callback(callback_query: CallbackQuery, state: FSMContext):
@@ -191,10 +186,6 @@ async def delete_lesson_callback(callback_query: CallbackQuery, state: FSMContex
 
     # Получаем список уроков для пользователя и отображаем его
     lessons = await rq.get_lessons_by_user(user_id=user.id)
-
-    if not lessons:
-        await callback_query.message.answer('У вас пока нет уроков.')
-        return
 
     # Создаем список кнопок с "Добавить урок" первой
     buttons = [
